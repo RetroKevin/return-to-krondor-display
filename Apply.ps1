@@ -78,6 +78,8 @@ Copy-Item -LiteralPath (Join-Path $payload 'cnc-ddraw config.exe') -Destination 
 $shaders = Join-Path $game 'Shaders'
 if (Test-Path $shaders) { Remove-Item -LiteralPath $shaders -Recurse -Force }
 Copy-Item -LiteralPath (Join-Path $payload 'Shaders') -Destination $shaders -Recurse -Force
+Copy-Item -LiteralPath (Join-Path $here 'RestoreFonts.bat') -Destination (Join-Path $game 'RestoreFonts.bat') -Force
+Copy-Item -LiteralPath (Join-Path $here 'RestoreFonts.ps1') -Destination (Join-Path $game 'RestoreFonts.ps1') -Force
 
 Write-Host "Display patch installed in $game"
 Write-Host "Start the game with RtK.exe. The retail executable is RtKGame.exe."
